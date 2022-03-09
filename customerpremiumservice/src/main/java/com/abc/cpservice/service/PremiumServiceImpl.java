@@ -16,6 +16,16 @@ public class PremiumServiceImpl implements PremiumService {
 
 	@Autowired
 	private PremiumRepository premiumRepository;
+	
+	/******************************************
+	 - Method Name      : addPremium
+	 - Input Parameters : Premium premium
+	 - Return type      : Premium
+	 - Author           : Sanket Vinod Dhanokar
+	 - Creation Date    : 06-03-2022
+	 - Description      : Inserting the Premium  information entered by customer   into  the database.
+	  ******************************************/
+	
 
 	@Override
 	public PremiumModel addPremium(PremiumModel premiumModel) {

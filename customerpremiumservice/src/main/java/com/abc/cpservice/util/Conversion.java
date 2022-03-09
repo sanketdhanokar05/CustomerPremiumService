@@ -4,12 +4,11 @@ import com.abc.cpservice.entity.Premium;
 import com.abc.cpservice.model.PremiumModel;
 
 public class Conversion {
-	
+
 	public static Premium modelToEntity(PremiumModel premiumModel) {
-		
+
 		Premium premium = new Premium();
-		
-		
+
 		premium.setPremiumId(premiumModel.getPremiumId());
 		premium.setCustomerId(premiumModel.getCustomerId());
 		premium.setProductId(premiumModel.getProductId());
@@ -21,10 +20,9 @@ public class Conversion {
 	}
 
 	public static PremiumModel entityToModel(Premium premium) {
-		
+
 		PremiumModel premiumModel = new PremiumModel();
-		
-		
+
 		premiumModel.setPremiumId(premium.getPremiumId());
 		premiumModel.setCustomerId(premium.getCustomerId());
 		premiumModel.setProductId(premium.getProductId());

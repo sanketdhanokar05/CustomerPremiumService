@@ -1,0 +1,10 @@
+package com.abc.cpservice.util;
+
+import com.abc.cpservice.entity.Premium;
+import com.abc.cpservice.model.PremiumModel;
+
+public class Conversion {
+	
+	public static Premium modelToEntity(PremiumModel premiumModel)
+
+}

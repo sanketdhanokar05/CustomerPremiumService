@@ -1,13 +1,13 @@
 package com.abc.cpservice.service;
 
 
-import com.abc.cpservice.entity.Premium;
+import com.abc.cpservice.model.PremiumModel;
 
 public interface PremiumService {
 	
-	public Premium addPremium(Premium premium);
+	public PremiumModel addPremium(PremiumModel premiumModel);
 	 
-	public Premium viewPremium(int premiumId);
+	public PremiumModel viewPremium(int premiumId);
 
 	
 	 }

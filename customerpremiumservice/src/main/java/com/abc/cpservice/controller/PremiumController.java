@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.abc.cpservice.entity.Premium;
+import com.abc.cpservice.model.PremiumModel;
 import com.abc.cpservice.service.PremiumService;
 
 
@@ -22,9 +22,9 @@ public class PremiumController {
 	private PremiumService premiumService;
 
 	@PostMapping("/newpremium")
-	 public ResponseEntity<Premium> newPremium(@RequestBody Premium premium) {
-		 Premium newPremium =premiumService.addPremium(premium);
-		 ResponseEntity<Premium> responseEntity = new ResponseEntity<Premium>(newPremium,HttpStatus.CREATED);
+	 public ResponseEntity<PremiumModel> newPremium(@RequestBody PremiumModel premiumModel) {
+		PremiumModel newPremiumModel =premiumService.addPremium(premiumModel);
+		 ResponseEntity<PremiumModel> responseEntity = new ResponseEntity<PremiumModel>(newPremiumModel,HttpStatus.CREATED);
 			return responseEntity;
 			
 	 }
@@ -32,8 +32,8 @@ public class PremiumController {
 	 @GetMapping("/view/{pid}")
 		public ResponseEntity<?> viewAllPremium(@PathVariable("pid") int premiumId)
 		{
-		 Premium premium=premiumService.viewPremium(premiumId);
-			return new ResponseEntity<>(premium, HttpStatus.OK);
+		 PremiumModel premiumModel=premiumService.viewPremium(premiumId);
+			return new ResponseEntity<>(premiumModel, HttpStatus.OK);
 			
 		}
 }

@@ -1,0 +1,94 @@
+package com.abc.cpservice.service;
+
+public class PremiumServiceTest {
+	
+	package com.abc.cpservice.test;
+
+	import static org.mockito.Mockito.times;
+
+	import static org.mockito.Mockito.verify;
+	import static org.mockito.Mockito.when;
+
+	import java.time.LocalDate;
+	import java.util.Optional;
+
+	import org.junit.jupiter.api.Test;
+	import org.mockito.InjectMocks;
+	import org.mockito.Mock;
+	import org.springframework.boot.test.context.SpringBootTest;
+
+	import com.abc.cpservice.entity.CustomerProduct;
+	import com.abc.cpservice.exceptionhandling.ResourceNotFoundException;
+	import com.abc.cpservice.repository.CustomerProductRepository;
+	import com.abc.cpservice.service.CustomerProductService;
+	import com.abc.cpservice.service.CustomerProductServiceImpl;
+	import static org.junit.jupiter.api.Assertions.assertEquals;
+	import static org.junit.jupiter.api.Assertions.assertThrows;
+
+	@SpringBootTest
+	public class ProductServiceTest {
+		@InjectMocks
+		private CustomerProductService customerProductService = new CustomerProductServiceImpl();
+		
+		@Mock
+		private CustomerProductRepository customerProductRepository;
+		
+//		@Test
+//	    public void testSaveProduct() {
+//	       
+//	        CustomerProduct customerProduct = new CustomerProduct();
+//	        customerProduct.setCustomerProductId(2);
+//	        customerProduct.setCustomerId(4);
+//	        customerProduct.setDateOfMaturity(LocalDate.of(2022, 03, 8));
+//	        customerProduct.setPremiumType(6);
+//	        customerProduct.setPremiumAmount(20000);
+//	        customerProduct.setProductId(3);
+//	        customerProduct.setNomineeId(2);
+//	           
+//	       
+//	        when(customerProductRepository.save(customerProduct)).thenReturn(customerProduct);
+//	       
+//	        CustomerProduct newProduct = customerProductService.saveCustomerProduct(customerProduct);
+//	       
+//	        //assertEquals(product.getProductName(), newProduct.getProductName(customerProduct));
+//	       
+//	        verify(customerProductRepository,times(1)).save(customerProduct);       
+//	       
+//	    }
+		
+		@Test
+		public void testgetOrderDetails() {
+			CustomerProduct customerProduct = new CustomerProduct();
+			customerProduct.setCustomerProductId(1);
+	        customerProduct.setCustomerId(2);
+	        customerProduct.setDateOfMaturity(LocalDate.of(2000, 10, 10));
+	        customerProduct.setPremiumType(6);
+	        customerProduct.setPremiumAmount(12334);
+	        customerProduct.setProductId(23);
+	        customerProduct.setNomineeId(324);
+			
+			Optional<CustomerProduct> option=Optional.of(customerProduct);
+			int customerProductId=1;
+
+			when(customerProductRepository.findById(1)).thenReturn(option);
+			
+			CustomerProduct existing=customerProductService.getCustomerProductDetails(customerProductId);
+			
+			//assertEquals(customerProduct.getCustomerProductId(),existing.getCustomerProductId());
+			assertEquals(customerProduct.getCustomerProductId(),existing.getCustomerProductId());
+			}
+		
+//		@Test
+//	    public void testGetCustomerByIdNotFound() {
+//	       
+//	        int customerProductId = 1;       
+//	           
+//	        when(customerProductRepository.findById(customerProductId)).thenThrow(ResourceNotFoundException.class);
+//	           
+//	        assertThrows(ResourceNotFoundException.class,()->customerProductService.getCustomerProductDetails(customerProductId));
+//	       
+//	    }
+
+	}
+
+}
